@@ -498,9 +498,57 @@
       background: color(display-p3 0.0078 0.0235 0.0902 / 0.1);
     }
   }
-  .tailwindBeams {
-    top: 0;
-    transform: translateX(-50%);
+}
+
+/* Langchain Frame */
+.langchainFrame {
+  position: relative;
+  background: linear-gradient(to top, #0c1d1d, #003939);
+}
+
+.langchainWindow {
+  position: relative;
+  z-index: 1;
+  border: 1px solid color(display-p3 0.8235 0.9451 1 / 0.25);
+  border-radius: 8px;
+  background: #061919;
+}
+
+.langchainBackground {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0.3;
+}
+
+.langchainFrameLightMode {
+  background: color(display-p3 1 1 1);
+
+  &.noBackground {
+    .langchainWindow {
+      background: rgb(255 255 255 / 100%);
+    }
+  }
+
+  .langchainWindow {
+    background: rgb(255 255 255 / 75%);
+    box-shadow:
+      0 0 0 1px color(display-p3 0.0572 0.0889 0.1628 / 0.1),
+      0px 2px 4px 0px color(display-p3 0 0 0 / 0.06);
+  }
+
+  &.isSafari {
+    .langchainWindow {
+      border: 1px solid color(display-p3 0.0078 0.0235 0.0902 / 0.1);
+      box-shadow: none;
+    }
   }
 }
 

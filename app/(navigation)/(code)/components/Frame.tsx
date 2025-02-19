@@ -18,7 +18,7 @@ import { selectedLanguageAtom } from "../store/code";
 import beams from "../assets/tailwind/beams.png";
 import mintlifyPatternDark from "../assets/mintlify-pattern-dark.svg?url";
 import mintlifyPatternLight from "../assets/mintlify-pattern-light.svg?url";
-
+import langchainBackground from "../assets/langchain/background.svg?url";
 import clerkPattern from "../assets/clerk/pattern.svg?url";
 
 const VercelFrame = () => {
@@ -81,6 +81,35 @@ const SupabaseFrame = () => {
           </div>
           <span className={styles.supabaseLanguage}>{selectedLanguage?.name}</span>
         </div>
+        <Editor />
+      </div>
+    </div>
+  );
+};
+
+const LangChainFrame = () => {
+  const [darkMode] = useAtom(darkModeAtom);
+  const [padding] = useAtom(paddingAtom);
+  const [showBackground] = useAtom(showBackgroundAtom);
+  const isSafari = useIsSafari();
+
+  return (
+    <div
+      className={classNames(
+        styles.frame,
+        showBackground && styles.langchainFrame,
+        !darkMode && styles.langchainFrameLightMode,
+        !showBackground && styles.noBackground,
+        isSafari && styles.isSafari,
+      )}
+      style={{ padding }}
+    >
+      {showBackground ? (
+        <img src={langchainBackground.src} className={styles.langchainBackground} />
+      ) : (
+        <div data-ignore-in-export className={styles.transparentPattern} />
+      )}
+      <div className={styles.langchainWindow}>
         <Editor />
       </div>
     </div>
@@ -317,6 +346,8 @@ const Frame = ({ resize = true }: { resize?: boolean }) => {
         return <SupabaseFrame />;
       case THEMES.tailwind.id:
         return <TailwindFrame />;
+      case THEMES.langchain.id:
+        return <LangChainFrame />;
       case THEMES.clerk.id:
         return <ClerkFrame />;
       case THEMES.mintlify.id:

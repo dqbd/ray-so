@@ -11,6 +11,8 @@ import SupabaseLogo from "../assets/supabase.svg";
 import SupabaseLogoUrl from "../assets/supabase.svg?url";
 import TailwindLogo from "../assets/tailwind.svg";
 import TailwindLogoUrl from "../assets/tailwind.svg?url";
+import LangchainLogo from "../assets/langchain.svg";
+import LangchainLogoUrl from "../assets/langchain.svg?url";
 import OpenAiLogo from "../assets/openai.svg";
 import OpenAiLogoUrl from "../assets/openai.svg?url";
 import ClerkLogo from "../assets/clerk.svg";
@@ -230,6 +232,54 @@ export const THEMES: { [index: string]: Theme } = {
         highlight: "#232323",
         highlightHover: "#1D1D1D",
         highlightBorder: "#383838",
+      }),
+    },
+  },
+  langchain: {
+    id: "langchain",
+    name: "Langchain",
+    background: {
+      from: "#004F49",
+      to: "#004F49",
+    },
+    icon: LangchainLogo,
+    iconUrl: `${BASE_URL}${LangchainLogoUrl.src}`,
+    font: "fira-code",
+    partner: true,
+    syntax: {
+      light: convertToShikiTheme({
+        foreground: "hsla(0, 0%, 9%,1)",
+        constant: "oklch(53.18% 0.2399 256.9900584162342)",
+        string: "oklch(51.75% 0.1453 147.65)",
+        comment: "hsla(0, 0%, 40%,1)",
+        keyword: "oklch(53.5% 0.2058 2.84)",
+        parameter: "oklch(52.79% 0.1496 54.65)",
+        function: "oklch(47.18% 0.2579 304)",
+        stringExpression: "oklch(51.75% 0.1453 147.65)",
+        punctuation: "hsla(0, 0%, 9%,1)",
+        link: "oklch(51.75% 0.1453 147.65)",
+        number: "#111111",
+        property: "oklch(53.18% 0.2399 256.9900584162342)",
+        highlight: "rgb(172 227 221 / 40%)",
+        highlightHover: "rgb(172 227 221 / 40%)",
+        highlightBorder: "rgb(53 151 147)",
+      }),
+      dark: convertToShikiTheme({
+        foreground: "#e6edf3",
+        constant: "#79c0ff",
+        string: "#a5d6ff",
+        comment: "#8b949e",
+        keyword: "#ff7b72",
+        parameter: "#e6edf3",
+        function: "#d2a8ff",
+        stringExpression: "#a5d6ff",
+        punctuation: "#e6edf3",
+        link: "#a5d6ff",
+        number: "#79c0ff",
+        property: "#79c0ff",
+        highlight: "rgb(32 79 79 / 40%)",
+        highlightHover: "rgb(32 79 79 / 40%)",
+        highlightBorder: "rgb(79 178 173)",
       }),
     },
   },
